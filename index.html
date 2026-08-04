@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Petrona:ital,wght@0,300;0,400;0,600;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  body { margin: 0; background: #FBF4EA; }
+  a { color: #9C4A1A; }
+  a:hover { color: #6E3110; }
+  ::selection { background: #E9B872; }
+</style>
+</helmet>
+<div style="font-family: Jost, system-ui, sans-serif; color: #3B2A20; background: #FBF4EA; min-height: 100vh;">
+
+  <div style="position: relative; overflow: hidden; background: linear-gradient(#F6E7D2, #FBF4EA); border-bottom: 1px solid #E3D3BC;">
+    <div style="max-width: 860px; margin: 0 auto; padding: 92px 32px 76px; text-align: center; display: flex; flex-direction: column; align-items: center; gap: 22px;">
+      <div style="font-size: 13px; letter-spacing: 0.32em; text-transform: uppercase; color: #9C4A1A;">A virtual baby shower</div>
+      <h1 style="font-family: Petrona, Georgia, serif; font-weight: 300; font-size: 76px; line-height: 1.02; margin: 0; color: #4A2B15;">Nathan <span style="font-style: italic; color: #9C4A1A;">&amp;</span> Mae</h1>
+      <p style="font-family: Petrona, Georgia, serif; font-size: 22px; font-weight: 300; line-height: 1.5; max-width: 30ch; margin: 0; color: #6B5344; text-wrap: pretty;">are welcoming their little pumpkin — and we're keeping the surprise until the very end.</p>
+      <div style="display: flex; align-items: center; gap: 14px; margin-top: 6px;">
+        <div style="width: 44px; height: 1px; background: #D8BFA0;"></div>
+        <div style="font-size: 12px; letter-spacing: 0.28em; text-transform: uppercase; color: #8A6E56;">Due October 15, 2026</div>
+        <div style="width: 44px; height: 1px; background: #D8BFA0;"></div>
+      </div>
+    </div>
+  </div>
+
+  <div style="max-width: 860px; margin: 0 auto; padding: 64px 32px 0;">
+    <div style="text-align: center; font-size: 12px; letter-spacing: 0.28em; text-transform: uppercase; color: #8A6E56; margin-bottom: 26px;">Counting down to baby</div>
+    <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px;">
+      <div style="background: #fff; border: 1px solid #E3D3BC; border-radius: 3px; padding: 26px 10px; text-align: center;">
+        <div style="font-family: Petrona, Georgia, serif; font-size: 48px; font-weight: 300; line-height: 1; color: #9C4A1A;">{{ days }}</div>
+        <div style="font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: #8A6E56; margin-top: 10px;">Days</div>
+      </div>
+      <div style="background: #fff; border: 1px solid #E3D3BC; border-radius: 3px; padding: 26px 10px; text-align: center;">
+        <div style="font-family: Petrona, Georgia, serif; font-size: 48px; font-weight: 300; line-height: 1; color: #9C4A1A;">{{ hours }}</div>
+        <div style="font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: #8A6E56; margin-top: 10px;">Hours</div>
+      </div>
+      <div style="background: #fff; border: 1px solid #E3D3BC; border-radius: 3px; padding: 26px 10px; text-align: center;">
+        <div style="font-family: Petrona, Georgia, serif; font-size: 48px; font-weight: 300; line-height: 1; color: #9C4A1A;">{{ minutes }}</div>
+        <div style="font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: #8A6E56; margin-top: 10px;">Minutes</div>
+      </div>
+      <div style="background: #fff; border: 1px solid #E3D3BC; border-radius: 3px; padding: 26px 10px; text-align: center;">
+        <div style="font-family: Petrona, Georgia, serif; font-size: 48px; font-weight: 300; line-height: 1; color: #9C4A1A;">{{ seconds }}</div>
+        <div style="font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: #8A6E56; margin-top: 10px;">Seconds</div>
+      </div>
+    </div>
+  </div>
+
+  <div style="max-width: 860px; margin: 0 auto; padding: 72px 32px 0;">
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+      <div style="background: #7C4A2B; color: #FBF4EA; border-radius: 3px; padding: 38px 34px; display: flex; flex-direction: column; gap: 20px;">
+        <div style="font-size: 11px; letter-spacing: 0.28em; text-transform: uppercase; color: #E9B872;">The details</div>
+        <div style="display: flex; flex-direction: column; gap: 18px;">
+          <div>
+            <div style="font-family: Petrona, Georgia, serif; font-size: 26px; font-weight: 300;">Saturday, September 19</div>
+            <div style="font-size: 15px; color: #E4CDB4; margin-top: 4px;">2:00 PM — 4:00 PM EST</div>
+          </div>
+          <div>
+            <div style="font-family: Petrona, Georgia, serif; font-size: 26px; font-weight: 300;">Wherever you are</div>
+            <div style="font-size: 15px; color: #E4CDB4; margin-top: 4px;">Hosted on Zoom — link emailed the morning of.</div>
+          </div>
+        </div>
+        <div style="font-size: 14px; line-height: 1.6; color: #E4CDB4; border-top: 1px solid rgba(233,184,114,0.3); padding-top: 18px; text-wrap: pretty;">Pour something warm, bring your best baby-name guess, and stay for the games.</div>
+      </div>
+
+      <div style="background: #fff; border: 1px solid #E3D3BC; border-radius: 3px; padding: 38px 34px; display: flex; flex-direction: column; gap: 18px;">
+        <div style="font-size: 11px; letter-spacing: 0.28em; text-transform: uppercase; color: #9C4A1A;">Registry</div>
+        <div style="font-family: Petrona, Georgia, serif; font-size: 30px; font-weight: 300; line-height: 1.2; color: #4A2B15;">Everything on one list</div>
+        <p style="margin: 0; font-size: 15px; line-height: 1.65; color: #6B5344; text-wrap: pretty;">We kept it neutral — greens, creams and plenty of stripes — since we don't know who we're meeting yet.</p>
+        <a href="https://my.babylist.com/baby-registry-nathan-mae" target="_blank" rel="noopener" style="margin-top: auto; align-self: flex-start; display: inline-block; background: #9C4A1A; color: #FBF4EA; text-decoration: none; font-size: 13px; letter-spacing: 0.14em; text-transform: uppercase; padding: 15px 28px; border-radius: 2px;" style-hover="background: #7C4A2B;">View our Babylist</a>
+      </div>
+    </div>
+  </div>
+
+  <div style="max-width: 860px; margin: 0 auto; padding: 72px 32px 96px;">
+    <div style="background: #F3E9D9; border: 1px solid #E3D3BC; border-radius: 3px; padding: 48px 44px;">
+      <sc-if value="{{ submitted }}" hint-placeholder-val="{{ false }}">
+        <div style="text-align: center; display: flex; flex-direction: column; gap: 12px; padding: 30px 0;">
+          <div style="font-family: Petrona, Georgia, serif; font-size: 36px; font-weight: 300; color: #4A2B15;">See you in September</div>
+          <div style="font-size: 15px; color: #6B5344;">Your RSVP is in — we'll send the Zoom link closer to the day.</div>
+        </div>
+      </sc-if>
+      <sc-if value="{{ notSubmitted }}" hint-placeholder-val="{{ true }}">
+        <div style="display: flex; flex-direction: column; gap: 26px;">
+          <div style="text-align: center; display: flex; flex-direction: column; gap: 10px;">
+            <div style="font-size: 11px; letter-spacing: 0.28em; text-transform: uppercase; color: #9C4A1A;">RSVP</div>
+            <div style="font-family: Petrona, Georgia, serif; font-size: 40px; font-weight: 300; color: #4A2B15;">Will you join us?</div>
+            <div style="font-size: 14px; color: #8A6E56;">Kindly reply by September 5</div>
+          </div>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+            <input placeholder="Your name" value="{{ name }}" onChange="{{ onName }}" style="font-family: Jost, sans-serif; font-size: 15px; padding: 15px 16px; border: 1px solid #D8C4A8; background: #fff; border-radius: 2px; color: #3B2A20; outline: none;" />
+            <input placeholder="Email" value="{{ email }}" onChange="{{ onEmail }}" style="font-family: Jost, sans-serif; font-size: 15px; padding: 15px 16px; border: 1px solid #D8C4A8; background: #fff; border-radius: 2px; color: #3B2A20; outline: none;" />
+          </div>
+          <div style="display: flex; gap: 12px;">
+            <div onClick="{{ pickYes }}" style="flex: 1; text-align: center; padding: 16px; border: 1px solid #D8C4A8; background: {{ yesBg }}; color: {{ yesFg }}; border-radius: 2px; cursor: pointer; font-size: 14px; letter-spacing: 0.08em;">Joining the call</div>
+            <div onClick="{{ pickNo }}" style="flex: 1; text-align: center; padding: 16px; border: 1px solid #D8C4A8; background: {{ noBg }}; color: {{ noFg }}; border-radius: 2px; cursor: pointer; font-size: 14px; letter-spacing: 0.08em;">Sending love from afar</div>
+          </div>
+          <input placeholder="Guess the name, or leave a note" value="{{ note }}" onChange="{{ onNote }}" style="font-family: Jost, sans-serif; font-size: 15px; padding: 15px 16px; border: 1px solid #D8C4A8; background: #fff; border-radius: 2px; color: #3B2A20; outline: none;" />
+          <div onClick="{{ submit }}" style="align-self: center; cursor: pointer; background: #55692F; color: #FBF4EA; font-size: 13px; letter-spacing: 0.14em; text-transform: uppercase; padding: 16px 40px; border-radius: 2px;" style-hover="background: #44551F;">Send RSVP</div>
+        </div>
+      </sc-if>
+    </div>
+  </div>
+
+  <div style="border-top: 1px solid #E3D3BC; padding: 34px; text-align: center; font-size: 12px; letter-spacing: 0.2em; text-transform: uppercase; color: #A08B76;">Nathan &amp; Mae · Baby, October 2026</div>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{}">
+class Component extends DCLogic {
+  state = { now: Date.now(), name: '', email: '', note: '', going: null, submitted: false };
+  componentDidMount() { this.t = setInterval(() => this.setState({ now: Date.now() }), 1000); }
+  componentWillUnmount() { clearInterval(this.t); }
+  renderVals() {
+    const target = new Date('2026-10-15T00:00:00').getTime();
+    let d = Math.max(0, target - this.state.now);
+    const days = Math.floor(d / 86400000);
+    const hours = Math.floor(d / 3600000) % 24;
+    const minutes = Math.floor(d / 60000) % 60;
+    const seconds = Math.floor(d / 1000) % 60;
+    const pad = n => String(n).padStart(2, '0');
+    const g = this.state.going;
+    return {
+      days, hours: pad(hours), minutes: pad(minutes), seconds: pad(seconds),
+      name: this.state.name, email: this.state.email, note: this.state.note,
+      submitted: this.state.submitted, notSubmitted: !this.state.submitted,
+      yesBg: g === 'yes' ? '#55692F' : '#fff', yesFg: g === 'yes' ? '#FBF4EA' : '#6B5344',
+      noBg: g === 'no' ? '#55692F' : '#fff', noFg: g === 'no' ? '#FBF4EA' : '#6B5344',
+      onName: e => this.setState({ name: e.target.value }),
+      onEmail: e => this.setState({ email: e.target.value }),
+      onNote: e => this.setState({ note: e.target.value }),
+      pickYes: () => this.setState({ going: 'yes' }),
+      pickNo: () => this.setState({ going: 'no' }),
+      submit: () => this.setState({ submitted: true })
+    };
+  }
+}
+</script>
+</body>
+</html>
