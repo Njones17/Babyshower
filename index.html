@@ -11,118 +11,238 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Petrona:ital,wght@0,300;0,400;0,600;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Petrona:ital,wght@0,300;0,400;0,600;1,400&family=Cormorant+Garamond:ital,wght@1,400;1,600&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
-  body { margin: 0; background: #FBF4EA; }
-  a { color: #9C4A1A; }
-  a:hover { color: #6E3110; }
-  ::selection { background: #E9B872; }
+  body { margin: 0; background: #FFFCF8; -webkit-text-size-adjust: 100%; }
+  * { box-sizing: border-box; }
+  input { min-width: 0; width: 100%; }
+  a { color: #BC6A2A; }
+  a:hover { color: #94491C; }
+  ::selection { background: #F2B98A; }
 </style>
 </helmet>
-<div style="font-family: Jost, system-ui, sans-serif; color: #3B2A20; background: #FBF4EA; min-height: 100vh;">
+<div ref="{{ leafLayer }}" style="position: fixed; inset: 0; overflow: hidden; pointer-events: none; z-index: 50;"></div>
+<div style="font-family: Jost, system-ui, sans-serif; color: #40301F; background: #FFFCF8; min-height: 100vh;">
 
-  <div style="position: relative; overflow: hidden; background: linear-gradient(#F6E7D2, #FBF4EA); border-bottom: 1px solid #E3D3BC;">
-    <div style="max-width: 860px; margin: 0 auto; padding: 92px 32px 76px; text-align: center; display: flex; flex-direction: column; align-items: center; gap: 22px;">
-      <div style="font-size: 13px; letter-spacing: 0.32em; text-transform: uppercase; color: #9C4A1A;">A virtual baby shower</div>
-      <h1 style="font-family: Petrona, Georgia, serif; font-weight: 300; font-size: 76px; line-height: 1.02; margin: 0; color: #4A2B15;">Nathan <span style="font-style: italic; color: #9C4A1A;">&amp;</span> Mae</h1>
-      <p style="font-family: Petrona, Georgia, serif; font-size: 22px; font-weight: 300; line-height: 1.5; max-width: 30ch; margin: 0; color: #6B5344; text-wrap: pretty;">are welcoming their little pumpkin — and we're keeping the surprise until the very end.</p>
+  <div style="position: relative; overflow: hidden; background: linear-gradient(#F8EBD9, #FFFCF8); border-bottom: 1px solid #EBDAC2;">
+    <div style="max-width: 860px; margin: 0 auto; padding: clamp(56px,11vw,92px) clamp(18px,5vw,32px) clamp(48px,8vw,76px); text-align: center; display: flex; flex-direction: column; align-items: center; gap: 22px;">
+      <div style="font-size: 13px; letter-spacing: 0.32em; text-transform: uppercase; color: #BC6A2A;">A virtual baby shower</div>
+      <h1 style="font-family: Petrona, Georgia, serif; font-weight: 300; font-size: clamp(44px,12vw,76px); line-height: 1.05; margin: 0; color: #6E4223;">Nathan <span style="font-family: Cormorant Garamond, Petrona, Georgia, serif; font-style: italic; font-weight: 400; font-size: 0.9em; color: #BC6A2A;">&amp;</span> Mae</h1>
+      <p style="font-family: Petrona, Georgia, serif; font-size: clamp(17px,4.4vw,22px); font-weight: 300; line-height: 1.5; max-width: 30ch; margin: 0; color: #6E5648; text-wrap: pretty;">Baby Mae-Nae, coming soon — join us to celebrate.</p>
       <div style="display: flex; align-items: center; gap: 14px; margin-top: 6px;">
-        <div style="width: 44px; height: 1px; background: #D8BFA0;"></div>
-        <div style="font-size: 12px; letter-spacing: 0.28em; text-transform: uppercase; color: #8A6E56;">Due October 15, 2026</div>
-        <div style="width: 44px; height: 1px; background: #D8BFA0;"></div>
+        <div style="width: 44px; height: 1px; background: #E0C39C;"></div>
+        <div style="font-size: 12px; letter-spacing: 0.28em; text-transform: uppercase; color: #9A7A5E;">Due October 10, 2026</div>
+        <div style="width: 44px; height: 1px; background: #E0C39C;"></div>
       </div>
     </div>
   </div>
 
-  <div style="max-width: 860px; margin: 0 auto; padding: 64px 32px 0;">
-    <div style="text-align: center; font-size: 12px; letter-spacing: 0.28em; text-transform: uppercase; color: #8A6E56; margin-bottom: 26px;">Counting down to baby</div>
-    <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px;">
-      <div style="background: #fff; border: 1px solid #E3D3BC; border-radius: 3px; padding: 26px 10px; text-align: center;">
-        <div style="font-family: Petrona, Georgia, serif; font-size: 48px; font-weight: 300; line-height: 1; color: #9C4A1A;">{{ days }}</div>
-        <div style="font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: #8A6E56; margin-top: 10px;">Days</div>
+  <div style="max-width: 860px; margin: 0 auto; padding: clamp(40px,9vw,64px) clamp(18px,5vw,32px) 0;">
+    <div style="text-align: center; font-size: 12px; letter-spacing: 0.28em; text-transform: uppercase; color: #9A7A5E; margin-bottom: 26px;">Counting down to baby</div>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(128px, 1fr)); gap: clamp(10px,2.5vw,14px);">
+      <div style="background: #fff; border: 1px solid #EBDAC2; border-radius: 3px; padding: clamp(18px,4.5vw,26px) 10px; text-align: center;">
+        <div style="font-family: Petrona, Georgia, serif; font-size: clamp(34px,8vw,48px); font-weight: 300; line-height: 1; color: #BC6A2A;">{{ days }}</div>
+        <div style="font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: #9A7A5E; margin-top: 10px;">Days</div>
       </div>
-      <div style="background: #fff; border: 1px solid #E3D3BC; border-radius: 3px; padding: 26px 10px; text-align: center;">
-        <div style="font-family: Petrona, Georgia, serif; font-size: 48px; font-weight: 300; line-height: 1; color: #9C4A1A;">{{ hours }}</div>
-        <div style="font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: #8A6E56; margin-top: 10px;">Hours</div>
+      <div style="background: #fff; border: 1px solid #EBDAC2; border-radius: 3px; padding: clamp(18px,4.5vw,26px) 10px; text-align: center;">
+        <div style="font-family: Petrona, Georgia, serif; font-size: clamp(34px,8vw,48px); font-weight: 300; line-height: 1; color: #BC6A2A;">{{ hours }}</div>
+        <div style="font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: #9A7A5E; margin-top: 10px;">Hours</div>
       </div>
-      <div style="background: #fff; border: 1px solid #E3D3BC; border-radius: 3px; padding: 26px 10px; text-align: center;">
-        <div style="font-family: Petrona, Georgia, serif; font-size: 48px; font-weight: 300; line-height: 1; color: #9C4A1A;">{{ minutes }}</div>
-        <div style="font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: #8A6E56; margin-top: 10px;">Minutes</div>
+      <div style="background: #fff; border: 1px solid #EBDAC2; border-radius: 3px; padding: clamp(18px,4.5vw,26px) 10px; text-align: center;">
+        <div style="font-family: Petrona, Georgia, serif; font-size: clamp(34px,8vw,48px); font-weight: 300; line-height: 1; color: #BC6A2A;">{{ minutes }}</div>
+        <div style="font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: #9A7A5E; margin-top: 10px;">Minutes</div>
       </div>
-      <div style="background: #fff; border: 1px solid #E3D3BC; border-radius: 3px; padding: 26px 10px; text-align: center;">
-        <div style="font-family: Petrona, Georgia, serif; font-size: 48px; font-weight: 300; line-height: 1; color: #9C4A1A;">{{ seconds }}</div>
-        <div style="font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: #8A6E56; margin-top: 10px;">Seconds</div>
+      <div style="background: #fff; border: 1px solid #EBDAC2; border-radius: 3px; padding: clamp(18px,4.5vw,26px) 10px; text-align: center;">
+        <div style="font-family: Petrona, Georgia, serif; font-size: clamp(34px,8vw,48px); font-weight: 300; line-height: 1; color: #BC6A2A;">{{ seconds }}</div>
+        <div style="font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: #9A7A5E; margin-top: 10px;">Seconds</div>
       </div>
     </div>
   </div>
 
-  <div style="max-width: 860px; margin: 0 auto; padding: 72px 32px 0;">
-    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
-      <div style="background: #7C4A2B; color: #FBF4EA; border-radius: 3px; padding: 38px 34px; display: flex; flex-direction: column; gap: 20px;">
-        <div style="font-size: 11px; letter-spacing: 0.28em; text-transform: uppercase; color: #E9B872;">The details</div>
+  <div style="max-width: 860px; margin: 0 auto; padding: clamp(44px,9vw,72px) clamp(18px,5vw,32px) 0;">
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px;">
+      <div style="background: #8A5433; color: #FFFCF8; border-radius: 3px; padding: clamp(26px,6vw,38px) clamp(22px,5.5vw,34px); display: flex; flex-direction: column; gap: 20px;">
+        <div style="font-size: 11px; letter-spacing: 0.28em; text-transform: uppercase; color: #F2B98A;">The details</div>
         <div style="display: flex; flex-direction: column; gap: 18px;">
           <div>
-            <div style="font-family: Petrona, Georgia, serif; font-size: 26px; font-weight: 300;">Saturday, September 19</div>
-            <div style="font-size: 15px; color: #E4CDB4; margin-top: 4px;">2:00 PM — 4:00 PM EST</div>
+            <div style="font-family: Petrona, Georgia, serif; font-size: clamp(22px,5.5vw,26px); font-weight: 300;">Saturday, September 19</div>
+            <div style="font-size: 15px; color: #F3E2CC; margin-top: 4px;">2:00 PM CST</div>
           </div>
           <div>
-            <div style="font-family: Petrona, Georgia, serif; font-size: 26px; font-weight: 300;">Wherever you are</div>
-            <div style="font-size: 15px; color: #E4CDB4; margin-top: 4px;">Hosted on Zoom — link emailed the morning of.</div>
+            <div style="font-family: Petrona, Georgia, serif; font-size: clamp(22px,5.5vw,26px); font-weight: 300;">Wherever you are</div>
+            <div style="font-size: 15px; color: #F3E2CC; margin-top: 4px;">Hosted on Zoom — the link will be available here the day before the shower.</div>
           </div>
         </div>
-        <div style="font-size: 14px; line-height: 1.6; color: #E4CDB4; border-top: 1px solid rgba(233,184,114,0.3); padding-top: 18px; text-wrap: pretty;">Pour something warm, bring your best baby-name guess, and stay for the games.</div>
+        <div style="font-size: 14px; line-height: 1.6; color: #F3E2CC; border-top: 1px solid rgba(233,184,114,0.3); padding-top: 18px; text-wrap: pretty;">Pour something warm, bring a gender guess, and stay for the games.</div>
       </div>
 
-      <div style="background: #fff; border: 1px solid #E3D3BC; border-radius: 3px; padding: 38px 34px; display: flex; flex-direction: column; gap: 18px;">
-        <div style="font-size: 11px; letter-spacing: 0.28em; text-transform: uppercase; color: #9C4A1A;">Registry</div>
-        <div style="font-family: Petrona, Georgia, serif; font-size: 30px; font-weight: 300; line-height: 1.2; color: #4A2B15;">Everything on one list</div>
-        <p style="margin: 0; font-size: 15px; line-height: 1.65; color: #6B5344; text-wrap: pretty;">We kept it neutral — greens, creams and plenty of stripes — since we don't know who we're meeting yet.</p>
-        <a href="https://my.babylist.com/baby-registry-nathan-mae" target="_blank" rel="noopener" style="margin-top: auto; align-self: flex-start; display: inline-block; background: #9C4A1A; color: #FBF4EA; text-decoration: none; font-size: 13px; letter-spacing: 0.14em; text-transform: uppercase; padding: 15px 28px; border-radius: 2px;" style-hover="background: #7C4A2B;">View our Babylist</a>
+      <div style="background: #fff; border: 1px solid #EBDAC2; border-radius: 3px; padding: clamp(26px,6vw,38px) clamp(22px,5.5vw,34px); display: flex; flex-direction: column; gap: 18px;">
+        <div style="font-size: 11px; letter-spacing: 0.28em; text-transform: uppercase; color: #BC6A2A;">Registry</div>
+        <div style="font-family: Petrona, Georgia, serif; font-size: clamp(24px,6vw,30px); font-weight: 300; line-height: 1.2; color: #6E4223;">Everything on one list</div>
+        <p style="margin: 0; font-size: 15px; line-height: 1.65; color: #6E5648; text-wrap: pretty;">Celebrating with us is more than enough. If you'd also like to help us get ready for baby, our registry is right here.</p>
+        <p style="margin: 0; font-size: 14px; line-height: 1.6; color: #9A7A5E; text-wrap: pretty;">Please have gifts shipped by <span style="color: #BC6A2A;">September 11</span> so they arrive in time.</p>
+        <a href="https://my.babylist.com/baby-registry-nathan-mae" target="_blank" rel="noopener" style="margin-top: auto; align-self: flex-start; display: inline-block; background: #BC6A2A; color: #FFFCF8; text-decoration: none; font-size: 13px; letter-spacing: 0.14em; text-transform: uppercase; padding: 15px 28px; border-radius: 2px;" style-hover="background: #8A5433;">View our registry</a>
       </div>
     </div>
   </div>
 
-  <div style="max-width: 860px; margin: 0 auto; padding: 72px 32px 96px;">
-    <div style="background: #F3E9D9; border: 1px solid #E3D3BC; border-radius: 3px; padding: 48px 44px;">
+  <div style="max-width: 860px; margin: 0 auto; padding: clamp(44px,9vw,72px) clamp(18px,5vw,32px) 0;">
+    <div style="background: #fff; border: 1px solid #EBDAC2; border-radius: 3px; padding: clamp(26px,6vw,44px) clamp(22px,5.5vw,44px); display: flex; flex-direction: column; gap: 24px;">
+      <div style="display: flex; flex-direction: column; gap: 10px;">
+        <div style="font-size: 11px; letter-spacing: 0.28em; text-transform: uppercase; color: #BC6A2A;">Joining on Zoom</div>
+        <div style="font-family: Petrona, Georgia, serif; font-size: clamp(24px,6vw,30px); font-weight: 300; line-height: 1.2; color: #6E4223;">How to join us</div>
+      </div>
+      <a href="#" style="align-self: flex-start; display: inline-block; background: #BC6A2A; color: #FFFCF8; text-decoration: none; font-size: 13px; letter-spacing: 0.14em; text-transform: uppercase; padding: 15px 28px; border-radius: 2px;" style-hover="background: #8A5433;">Zoom link — coming soon</a>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 22px 30px;">
+        <div style="display: flex; gap: 14px;">
+          <div style="font-family: Petrona, Georgia, serif; font-size: 28px; font-weight: 300; line-height: 1; color: #E0C39C;">1</div>
+          <div style="font-size: 15px; line-height: 1.6; color: #6E5648; text-wrap: pretty;">A few minutes before 2:00 PM CST, click the Zoom button above from your phone, tablet or computer.</div>
+        </div>
+        <div style="display: flex; gap: 14px;">
+          <div style="font-family: Petrona, Georgia, serif; font-size: 28px; font-weight: 300; line-height: 1; color: #E0C39C;">2</div>
+          <div style="font-size: 15px; line-height: 1.6; color: #6E5648; text-wrap: pretty;">If it's your first time, Zoom will ask to install the app — allow it, or choose "join from your browser."</div>
+        </div>
+        <div style="display: flex; gap: 14px;">
+          <div style="font-family: Petrona, Georgia, serif; font-size: 28px; font-weight: 300; line-height: 1; color: #E0C39C;">3</div>
+          <div style="font-size: 15px; line-height: 1.6; color: #6E5648; text-wrap: pretty;">Enter your name so we know who's here, then choose "join with video" and "join with audio."</div>
+        </div>
+        <div style="display: flex; gap: 14px;">
+          <div style="font-family: Petrona, Georgia, serif; font-size: 28px; font-weight: 300; line-height: 1; color: #E0C39C;">4</div>
+          <div style="font-size: 15px; line-height: 1.6; color: #6E5648; text-wrap: pretty;">Stay muted while others are talking — and unmute any time you want to say hello.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div style="max-width: 860px; margin: 0 auto; padding: clamp(44px,9vw,72px) clamp(18px,5vw,32px) clamp(56px,10vw,96px);">
+    <div style="background: #F8EBD9; border: 1px solid #EBDAC2; border-radius: 3px; padding: clamp(28px,6.5vw,48px) clamp(22px,5.5vw,44px);">
       <sc-if value="{{ submitted }}" hint-placeholder-val="{{ false }}">
         <div style="text-align: center; display: flex; flex-direction: column; gap: 12px; padding: 30px 0;">
-          <div style="font-family: Petrona, Georgia, serif; font-size: 36px; font-weight: 300; color: #4A2B15;">See you in September</div>
-          <div style="font-size: 15px; color: #6B5344;">Your RSVP is in — we'll send the Zoom link closer to the day.</div>
+          <div style="font-family: Petrona, Georgia, serif; font-size: clamp(28px,7vw,36px); font-weight: 300; color: #6E4223;">See you in September</div>
+          <div style="font-size: 15px; color: #6E5648;">Your RSVP is in — the Zoom link is right here on the site when the day comes.</div>
         </div>
       </sc-if>
       <sc-if value="{{ notSubmitted }}" hint-placeholder-val="{{ true }}">
         <div style="display: flex; flex-direction: column; gap: 26px;">
           <div style="text-align: center; display: flex; flex-direction: column; gap: 10px;">
-            <div style="font-size: 11px; letter-spacing: 0.28em; text-transform: uppercase; color: #9C4A1A;">RSVP</div>
-            <div style="font-family: Petrona, Georgia, serif; font-size: 40px; font-weight: 300; color: #4A2B15;">Will you join us?</div>
-            <div style="font-size: 14px; color: #8A6E56;">Kindly reply by September 5</div>
+            <div style="font-size: 11px; letter-spacing: 0.28em; text-transform: uppercase; color: #BC6A2A;">RSVP</div>
+            <div style="font-family: Petrona, Georgia, serif; font-size: clamp(30px,7.5vw,40px); font-weight: 300; color: #6E4223;">Will you join us?</div>
           </div>
-          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
-            <input placeholder="Your name" value="{{ name }}" onChange="{{ onName }}" style="font-family: Jost, sans-serif; font-size: 15px; padding: 15px 16px; border: 1px solid #D8C4A8; background: #fff; border-radius: 2px; color: #3B2A20; outline: none;" />
-            <input placeholder="Email" value="{{ email }}" onChange="{{ onEmail }}" style="font-family: Jost, sans-serif; font-size: 15px; padding: 15px 16px; border: 1px solid #D8C4A8; background: #fff; border-radius: 2px; color: #3B2A20; outline: none;" />
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px;">
+            <input placeholder="Your name" value="{{ name }}" onChange="{{ onName }}" style="font-family: Jost, sans-serif; font-size: 15px; padding: 15px 16px; border: 1px solid #E4D0B6; background: #fff; border-radius: 2px; color: #40301F; outline: none;" />
+            <input placeholder="Email" value="{{ email }}" onChange="{{ onEmail }}" style="font-family: Jost, sans-serif; font-size: 15px; padding: 15px 16px; border: 1px solid #E4D0B6; background: #fff; border-radius: 2px; color: #40301F; outline: none;" />
           </div>
-          <div style="display: flex; gap: 12px;">
-            <div onClick="{{ pickYes }}" style="flex: 1; text-align: center; padding: 16px; border: 1px solid #D8C4A8; background: {{ yesBg }}; color: {{ yesFg }}; border-radius: 2px; cursor: pointer; font-size: 14px; letter-spacing: 0.08em;">Joining the call</div>
-            <div onClick="{{ pickNo }}" style="flex: 1; text-align: center; padding: 16px; border: 1px solid #D8C4A8; background: {{ noBg }}; color: {{ noFg }}; border-radius: 2px; cursor: pointer; font-size: 14px; letter-spacing: 0.08em;">Sending love from afar</div>
+          <div style="display: flex; flex-wrap: wrap; gap: 12px;">
+            <div onClick="{{ pickYes }}" style="flex: 1; text-align: center; padding: 16px; border: 1px solid #E4D0B6; background: {{ yesBg }}; color: {{ yesFg }}; border-radius: 2px; cursor: pointer; font-size: 14px; letter-spacing: 0.08em;">Attending</div>
+            <div onClick="{{ pickNo }}" style="flex: 1; text-align: center; padding: 16px; border: 1px solid #E4D0B6; background: {{ noBg }}; color: {{ noFg }}; border-radius: 2px; cursor: pointer; font-size: 14px; letter-spacing: 0.08em;">Not attending</div>
           </div>
-          <input placeholder="Guess the name, or leave a note" value="{{ note }}" onChange="{{ onNote }}" style="font-family: Jost, sans-serif; font-size: 15px; padding: 15px 16px; border: 1px solid #D8C4A8; background: #fff; border-radius: 2px; color: #3B2A20; outline: none;" />
-          <div onClick="{{ submit }}" style="align-self: center; cursor: pointer; background: #55692F; color: #FBF4EA; font-size: 13px; letter-spacing: 0.14em; text-transform: uppercase; padding: 16px 40px; border-radius: 2px;" style-hover="background: #44551F;">Send RSVP</div>
+          <input placeholder="Guess the gender, or leave a note" value="{{ note }}" onChange="{{ onNote }}" style="font-family: Jost, sans-serif; font-size: 15px; padding: 15px 16px; border: 1px solid #E4D0B6; background: #fff; border-radius: 2px; color: #40301F; outline: none;" />
+          <div onClick="{{ submit }}" style="align-self: center; cursor: pointer; background: #8A5433; color: #FFFCF8; font-size: 13px; letter-spacing: 0.14em; text-transform: uppercase; padding: 16px 40px; border-radius: 2px;" style-hover="background: #6E4223;">Send RSVP</div>
         </div>
       </sc-if>
     </div>
   </div>
 
-  <div style="border-top: 1px solid #E3D3BC; padding: 34px; text-align: center; font-size: 12px; letter-spacing: 0.2em; text-transform: uppercase; color: #A08B76;">Nathan &amp; Mae · Baby, October 2026</div>
+  <div style="border-top: 1px solid #EBDAC2; padding: 34px 20px; text-align: center; font-size: 12px; letter-spacing: 0.2em; text-transform: uppercase; color: #A98A6E;">Nathan &amp; Mae · Baby, October 2026</div>
 </div>
-
 </x-dc>
 <script type="text/x-dc" data-dc-script data-props="{}">
 class Component extends DCLogic {
   state = { now: Date.now(), name: '', email: '', note: '', going: null, submitted: false };
-  componentDidMount() { this.t = setInterval(() => this.setState({ now: Date.now() }), 1000); }
+  leafLayer = React.createRef();
+  componentDidMount() {
+    this.t = setInterval(() => this.setState({ now: Date.now() }), 1000);
+    this.burstLeaves();
+  }
+  makeLeaf(size, light, dark, kind) {
+    const h = size * 1.45;
+    const el = document.createElement('div');
+    el.style.cssText = 'position:absolute;left:0;top:0;will-change:transform,opacity;opacity:0;' +
+      'width:' + size + 'px;height:' + h + 'px;';
+    const shapes = {
+      pointed: 'polygon(50% 0%,61% 11%,71% 27%,77% 47%,73% 67%,62% 86%,50% 100%,38% 86%,27% 67%,23% 47%,29% 27%,39% 11%)',
+      serrated: 'polygon(50% 2%,59% 12%,68% 11%,66% 24%,75% 27%,71% 39%,80% 48%,70% 58%,74% 71%,61% 75%,57% 89%,50% 100%,43% 89%,39% 75%,26% 71%,30% 58%,20% 48%,29% 39%,25% 27%,34% 24%,32% 11%,41% 12%)',
+      lobed: 'polygon(50% 1%,63% 9%,61% 23%,74% 27%,69% 40%,81% 49%,69% 59%,74% 73%,59% 76%,56% 90%,50% 100%,44% 90%,41% 76%,26% 73%,31% 59%,19% 49%,31% 40%,26% 27%,39% 23%,37% 9%)'
+    };
+    const blade = document.createElement('div');
+    blade.style.cssText = 'position:absolute;inset:0;overflow:hidden;' +
+      'clip-path:' + (shapes[kind] || shapes.pointed) + ';' +
+      'background:radial-gradient(130% 95% at 32% 14%, ' + light + ' 0%, ' + light + ' 40%, ' + dark + ' 100%);';
+    el.appendChild(blade);
+    const midrib = document.createElement('div');
+    midrib.style.cssText = 'position:absolute;left:50%;top:4%;width:' + Math.max(1, size * 0.03) + 'px;height:92%;' +
+      'transform:translateX(-50%);border-radius:2px;opacity:0.5;' +
+      'background:linear-gradient(' + dark + ' 0%, rgba(255,255,255,0.55) 55%, ' + dark + ' 100%);';
+    blade.appendChild(midrib);
+    for (let v = 0; v < 4; v++) {
+      for (const d of [-1, 1]) {
+        const side = document.createElement('div');
+        side.style.cssText = 'position:absolute;left:50%;top:' + (24 + v * 15) + '%;height:1px;' +
+          'width:' + (size * (0.46 - v * 0.07)) + 'px;background:' + dark + ';opacity:0.32;' +
+          'transform-origin:0 50%;transform:rotate(' + (d > 0 ? 34 + v * 8 : 146 - v * 8) + 'deg);';
+        blade.appendChild(side);
+      }
+    }
+    const shade = document.createElement('div');
+    shade.style.cssText = 'position:absolute;inset:0;opacity:0.35;' +
+      'background:linear-gradient(115deg, rgba(255,255,255,0.35) 0%, rgba(255,255,255,0) 45%, rgba(0,0,0,0.35) 100%);';
+    blade.appendChild(shade);
+    const stem = document.createElement('div');
+    stem.style.cssText = 'position:absolute;left:50%;top:97%;' +
+      'width:' + Math.max(1.2, size * 0.035) + 'px;height:' + (size * 0.15) + 'px;' +
+      'background:' + dark + ';border-radius:2px;transform:translateX(-50%);opacity:0.85;';
+    el.appendChild(stem);
+    return el;
+  }
+  burstLeaves() {
+    const layer = this.leafLayer.current;
+    if (!layer || this.burst) return;
+    this.burst = true;
+    const palette = [
+      ['#D98A3C', '#B15A1E'], ['#C9822F', '#8A4E18'], ['#B8451F', '#7E2A15'],
+      ['#A9673A', '#6E4223'], ['#E0AE52', '#B87F27'], ['#8A5433', '#5A3318'],
+      ['#C4552A', '#8E3316'], ['#E3C177', '#C09640']
+    ];
+    const W = window.innerWidth, H = window.innerHeight;
+    const kinds = ['pointed', 'serrated', 'lobed', 'pointed', 'serrated'];
+    const n = 130;
+    const nodes = [];
+    for (let i = 0; i < n; i++) {
+      const size = 20 + Math.random() * 40;
+      const [light, dark] = palette[i % palette.length];
+      const el = this.makeLeaf(size, light, dark, kinds[i % kinds.length]);
+      layer.appendChild(el);
+      nodes.push({ el, size });
+    }
+    nodes.forEach((o, i) => {
+      const x0 = -60 + Math.random() * (W + 120);
+      const y0 = -120 - Math.random() * H * 0.9;
+      const sway = 30 + Math.random() * 110;
+      const dir = Math.random() < 0.5 ? -1 : 1;
+      const spin0 = Math.random() * 360;
+      const spinRate = (120 + Math.random() * 260) * dir;
+      const drift = (Math.random() - 0.5) * 160;
+      const fall = 8000 + Math.random() * 7000;
+      const delay = Math.random() * 1200;
+      const frames = [];
+      const steps = 10;
+      for (let k = 0; k <= steps; k++) {
+        const p = k / steps;
+        const y = y0 + (H + 160 - y0) * p;
+        const x = x0 + Math.sin(p * Math.PI * 2.6 + i) * sway + drift * p;
+        frames.push({
+          transform: 'translate(' + x + 'px,' + y + 'px) rotate(' + (spin0 + spinRate * p) + 'deg) rotateY(' + (Math.sin(p * Math.PI * 3.4 + i) * 60) + 'deg)',
+          opacity: k === 0 ? 0 : (k === 1 ? 1 : (k === steps ? 0.9 : 1)),
+          offset: p
+        });
+      }
+      o.el.animate(frames, { duration: fall, delay, easing: 'linear', fill: 'forwards' });
+    });
+    setTimeout(() => { if (layer) layer.innerHTML = ''; }, 17500);
+  }
   componentWillUnmount() { clearInterval(this.t); }
   renderVals() {
-    const target = new Date('2026-10-15T00:00:00').getTime();
+    const target = new Date('2026-10-10T00:00:00').getTime();
     let d = Math.max(0, target - this.state.now);
     const days = Math.floor(d / 86400000);
     const hours = Math.floor(d / 3600000) % 24;
@@ -131,11 +251,12 @@ class Component extends DCLogic {
     const pad = n => String(n).padStart(2, '0');
     const g = this.state.going;
     return {
+      leafLayer: this.leafLayer,
       days, hours: pad(hours), minutes: pad(minutes), seconds: pad(seconds),
       name: this.state.name, email: this.state.email, note: this.state.note,
       submitted: this.state.submitted, notSubmitted: !this.state.submitted,
-      yesBg: g === 'yes' ? '#55692F' : '#fff', yesFg: g === 'yes' ? '#FBF4EA' : '#6B5344',
-      noBg: g === 'no' ? '#55692F' : '#fff', noFg: g === 'no' ? '#FBF4EA' : '#6B5344',
+      yesBg: g === 'yes' ? '#8A5433' : '#fff', yesFg: g === 'yes' ? '#FFFCF8' : '#6E5648',
+      noBg: g === 'no' ? '#8A5433' : '#fff', noFg: g === 'no' ? '#FFFCF8' : '#6E5648',
       onName: e => this.setState({ name: e.target.value }),
       onEmail: e => this.setState({ email: e.target.value }),
       onNote: e => this.setState({ note: e.target.value }),
