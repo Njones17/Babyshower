@@ -34,6 +34,7 @@
         <div style="font-size: 12px; letter-spacing: 0.28em; text-transform: uppercase; color: #9A7A5E;">Due October 10, 2026</div>
         <div style="width: 44px; height: 1px; background: #E0C39C;"></div>
       </div>
+      <img src="assets/pumpkin.png" alt="Watercolor pumpkin" style="width: 104px; height: auto; display: block; margin-top: 4px;" />
     </div>
   </div>
 
@@ -81,6 +82,10 @@
         <div style="font-family: Petrona, Georgia, serif; font-size: clamp(24px,6vw,30px); font-weight: 300; line-height: 1.2; color: #6E4223;">Everything on one list</div>
         <p style="margin: 0; font-size: 15px; line-height: 1.65; color: #6E5648; text-wrap: pretty;">Celebrating with us is more than enough. If you'd also like to help us get ready for baby, our registry is right here.</p>
         <p style="margin: 0; font-size: 14px; line-height: 1.6; color: #9A7A5E; text-wrap: pretty;">Please have gifts shipped by <span style="color: #BC6A2A;">September 11</span> so they arrive in time.</p>
+        <div style="font-size: 14px; line-height: 1.6; color: #6E5648;">
+          <div style="font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: #9A7A5E; margin-bottom: 6px;">Ship to</div>
+          Nathan &amp; Mae<br />18220 N 68th St, Apt 328<br />Phoenix, AZ 85054
+        </div>
         <a href="https://my.babylist.com/baby-registry-nathan-mae" target="_blank" rel="noopener" style="margin-top: auto; align-self: flex-start; display: inline-block; background: #BC6A2A; color: #FFFCF8; text-decoration: none; font-size: 13px; letter-spacing: 0.14em; text-transform: uppercase; padding: 15px 28px; border-radius: 2px;" style-hover="background: #8A5433;">View our registry</a>
       </div>
     </div>
@@ -90,9 +95,10 @@
     <div style="background: #fff; border: 1px solid #EBDAC2; border-radius: 3px; padding: clamp(26px,6vw,44px) clamp(22px,5.5vw,44px); display: flex; flex-direction: column; gap: 24px;">
       <div style="display: flex; flex-direction: column; gap: 10px;">
         <div style="font-size: 11px; letter-spacing: 0.28em; text-transform: uppercase; color: #BC6A2A;">Joining on Zoom</div>
-        <div style="font-family: Petrona, Georgia, serif; font-size: clamp(24px,6vw,30px); font-weight: 300; line-height: 1.2; color: #6E4223;">How to join us</div>
+        <div style="font-family: Petrona, Georgia, serif; font-size: clamp(24px,6vw,30px); font-weight: 300; line-height: 1.2; color: #6E4223;">How to join</div>
       </div>
       <a href="#" style="align-self: flex-start; display: inline-block; background: #BC6A2A; color: #FFFCF8; text-decoration: none; font-size: 13px; letter-spacing: 0.14em; text-transform: uppercase; padding: 15px 28px; border-radius: 2px;" style-hover="background: #8A5433;">Zoom link — coming soon</a>
+      <div style="font-size: 15px; line-height: 1.6; color: #6E5648;">Having technical difficulties? Call Nathan at <a href="tel:+12198774913" style="color: #BC6A2A;">(219) 877-4913</a>.</div>
       <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 22px 30px;">
         <div style="display: flex; gap: 14px;">
           <div style="font-family: Petrona, Georgia, serif; font-size: 28px; font-weight: 300; line-height: 1; color: #E0C39C;">1</div>
@@ -137,22 +143,63 @@
             <div onClick="{{ pickNo }}" style="flex: 1; text-align: center; padding: 16px; border: 1px solid #E4D0B6; background: {{ noBg }}; color: {{ noFg }}; border-radius: 2px; cursor: pointer; font-size: 14px; letter-spacing: 0.08em;">Not attending</div>
           </div>
           <input placeholder="Guess the gender, or leave a note" value="{{ note }}" onChange="{{ onNote }}" style="font-family: Jost, sans-serif; font-size: 15px; padding: 15px 16px; border: 1px solid #E4D0B6; background: #fff; border-radius: 2px; color: #40301F; outline: none;" />
-          <div onClick="{{ submit }}" style="align-self: center; cursor: pointer; background: #8A5433; color: #FFFCF8; font-size: 13px; letter-spacing: 0.14em; text-transform: uppercase; padding: 16px 40px; border-radius: 2px;" style-hover="background: #6E4223;">Send RSVP</div>
+          <div onClick="{{ submit }}" style="align-self: center; cursor: pointer; background: #8A5433; color: #FFFCF8; font-size: 13px; letter-spacing: 0.14em; text-transform: uppercase; padding: 16px 40px; border-radius: 2px;" style-hover="background: #6E4223;">{{ sendLabel }}</div>
+          <sc-if value="{{ hasError }}" hint-placeholder-val="{{ false }}">
+            <div style="text-align: center; font-size: 14px; color: #A64C16;">{{ error }}</div>
+          </sc-if>
         </div>
       </sc-if>
     </div>
   </div>
 
+  <div style="display: flex; justify-content: center; padding: 0 20px 48px;">
+    <img src="assets/pumpkin.png" alt="Watercolor pumpkin" style="width: 148px; height: auto; display: block;" />
+  </div>
+
   <div style="border-top: 1px solid #EBDAC2; padding: 34px 20px; text-align: center; font-size: 12px; letter-spacing: 0.2em; text-transform: uppercase; color: #A98A6E;">Nathan &amp; Mae · Baby, October 2026</div>
 </div>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props="{}">
+<script type="text/x-dc" data-dc-script data-props="{&quot;rsvpEndpoint&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;https://script.google.com/macros/s/AKfycbyWTOH2hCTBOPyDAwdRgKF0lXGPFFfFekJM_5WK6qKXPqx38P-JiNdnRyLujlCTvhrH/exec&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;RSVP&quot;,&quot;label&quot;:&quot;Google Apps Script web app URL&quot;}}">
 class Component extends DCLogic {
-  state = { now: Date.now(), name: '', email: '', note: '', going: null, submitted: false };
+  state = { now: Date.now(), name: '', email: '', note: '', going: null, submitted: false, sending: false, error: '' };
+  rsvpUrl = 'https://script.google.com/macros/s/AKfycbyWTOH2hCTBOPyDAwdRgKF0lXGPFFfFekJM_5WK6qKXPqx38P-JiNdnRyLujlCTvhrH/exec';
   leafLayer = React.createRef();
   componentDidMount() {
     this.t = setInterval(() => this.setState({ now: Date.now() }), 1000);
     this.burstLeaves();
+  }
+  makePumpkin(size, white) {
+    const w = size * 1.35, h = size;
+    const el = document.createElement('div');
+    el.style.cssText = 'position:absolute;left:0;top:0;will-change:transform,opacity;opacity:0;' +
+      'width:' + w + 'px;height:' + (h * 1.3) + 'px;';
+    const body = document.createElement('div');
+    body.style.cssText = 'position:absolute;left:0;bottom:0;width:' + w + 'px;height:' + h + 'px;';
+    el.appendChild(body);
+    const lobes = white
+      ? [['#FBF6EC', '#E4DAC6'], ['#F6F0E2', '#DDD1BA'], ['#FFFDF7', '#E9DFCB']]
+      : [['#E08C36', '#B4571B'], ['#D97C28', '#A64C16'], ['#EEA24A', '#C4661F']];
+    const specs = [
+      { wf: 0.62, hf: 1.0, x: 0.19, z: 3 },
+      { wf: 0.52, hf: 0.92, x: 0.04, z: 2 },
+      { wf: 0.52, hf: 0.92, x: 0.44, z: 2 },
+      { wf: 0.4, hf: 0.8, x: 0.0, z: 1 },
+      { wf: 0.4, hf: 0.8, x: 0.6, z: 1 }
+    ];
+    specs.forEach((sp, k) => {
+      const [lt, dk] = lobes[k % lobes.length];
+      const lobe = document.createElement('div');
+      lobe.style.cssText = 'position:absolute;bottom:0;z-index:' + sp.z + ';' +
+        'left:' + (sp.x * w) + 'px;width:' + (sp.wf * w) + 'px;height:' + (sp.hf * h) + 'px;' +
+        'border-radius:50%;background:radial-gradient(120% 100% at 35% 25%,' + lt + ' 0%,' + lt + ' 45%,' + dk + ' 100%);';
+      body.appendChild(lobe);
+    });
+    const stem = document.createElement('div');
+    stem.style.cssText = 'position:absolute;z-index:4;left:' + (w * 0.46) + 'px;bottom:' + (h * 0.88) + 'px;' +
+      'width:' + (w * 0.09) + 'px;height:' + (h * 0.3) + 'px;background:linear-gradient(#7A5A2E,#523A18);' +
+      'border-radius:' + (w * 0.05) + 'px;transform:rotate(-8deg);';
+    el.appendChild(stem);
+    return el;
   }
   makeLeaf(size, light, dark, kind) {
     const h = size * 1.45;
@@ -262,7 +309,34 @@ class Component extends DCLogic {
       onNote: e => this.setState({ note: e.target.value }),
       pickYes: () => this.setState({ going: 'yes' }),
       pickNo: () => this.setState({ going: 'no' }),
-      submit: () => this.setState({ submitted: true })
+      sending: this.state.sending,
+      sendLabel: this.state.sending ? 'Sending…' : 'Send RSVP',
+      error: this.state.error,
+      hasError: !!this.state.error,
+      submit: () => {
+        if (this.state.sending) return;
+        const endpoint = this.props.rsvpEndpoint || this.rsvpUrl;
+        const payload = {
+          name: this.state.name,
+          email: this.state.email,
+          attending: this.state.going === 'yes' ? 'Attending' : (this.state.going === 'no' ? 'Not attending' : ''),
+          note: this.state.note,
+          submittedAt: new Date().toISOString()
+        };
+        if (!endpoint) { this.setState({ submitted: true }); return; }
+        this.setState({ sending: true, error: '' });
+        const body = new URLSearchParams(payload).toString();
+        fetch(endpoint, {
+          method: 'POST',
+          mode: 'no-cors',
+          headers: { 'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8' },
+          body
+        }).then(() => {
+          this.setState({ sending: false, submitted: true });
+        }).catch(() => {
+          this.setState({ sending: false, error: 'Something went wrong — please text Nathan at (219) 877-4913.' });
+        });
+      }
     };
   }
 }
