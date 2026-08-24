@@ -159,10 +159,10 @@
   <div style="border-top: 1px solid #EBDAC2; padding: 34px 20px; text-align: center; font-size: 12px; letter-spacing: 0.2em; text-transform: uppercase; color: #A98A6E;">Nathan &amp; Mae · Baby, October 2026</div>
 </div>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props="{&quot;rsvpEndpoint&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;https://script.google.com/macros/s/AKfycbyWTOH2hCTBOPyDAwdRgKF0lXGPFFfFekJM_5WK6qKXPqx38P-JiNdnRyLujlCTvhrH/exec&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;RSVP&quot;,&quot;label&quot;:&quot;Google Apps Script web app URL&quot;}}">
+<script type="text/x-dc" data-dc-script data-props="{&quot;rsvpEndpoint&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;https://script.google.com/macros/s/AKfycbzpjfMFj7lwAT8WcQ4XKtFi__f4oO5MZaKzR0ciIDVS9m4nEn_Ilf0rG7pXSOTwHhKY/exec&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;RSVP&quot;,&quot;label&quot;:&quot;Google Apps Script web app URL&quot;}}">
 class Component extends DCLogic {
   state = { now: Date.now(), name: '', email: '', note: '', going: null, submitted: false, sending: false, error: '' };
-  rsvpUrl = 'https://script.google.com/macros/s/AKfycbyWTOH2hCTBOPyDAwdRgKF0lXGPFFfFekJM_5WK6qKXPqx38P-JiNdnRyLujlCTvhrH/exec';
+  rsvpUrl = 'https://script.google.com/macros/s/AKfycbzpjfMFj7lwAT8WcQ4XKtFi__f4oO5MZaKzR0ciIDVS9m4nEn_Ilf0rG7pXSOTwHhKY/exec';
   leafLayer = React.createRef();
   componentDidMount() {
     this.t = setInterval(() => this.setState({ now: Date.now() }), 1000);
